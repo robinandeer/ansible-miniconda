@@ -1,4 +1,4 @@
-# Miniconda role for Ansible
+# Miniconda role for Ansible [![Build Status][travis-image]][travis-url]
 
 A role for deploying and configuring [miniconda](http://conda.pydata.org/miniconda.html) and extensions on unix hosts using [Ansible](http://www.ansibleworks.com/).
 
@@ -54,3 +54,7 @@ At the moment, ``ubuntu-precise`` is the only test VM available.
 ### 0.1
 
 Initial version.
+
+
+[travis-url]: https://travis-ci.org/robinandeer/ansible-miniconda
+[travis-image]: https://img.shields.io/travis/robinandeer/ansible-miniconda.svg?style=flat
