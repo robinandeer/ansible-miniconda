@@ -1,0 +1,24 @@
+---
+
+# Boxed installation playbook
+# ---------------------------
+
+# A Simple, straight playbook for producing
+# a boxed installation in a vagrant VM.
+
+
+- name: 'miniconda boxed installation'
+
+  hosts: vagrant
+
+  pre_tasks:
+    - name: APT update
+      sudo: yes
+      when: ansible_os_family == 'Debian'
+      apt: update_cache=yes cache_valid_time=3600
+
+  # vars:
+    # custom_configuration: value
+
+  roles:
+    - '.'    # The current directory itself is the role

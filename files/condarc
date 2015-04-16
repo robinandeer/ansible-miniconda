@@ -1,0 +1,11 @@
+# installing a new environments add these packages by default
+create_default_packages:
+  - python
+  - pip
+  - ipython
+
+# implies always using the --yes option whenever asked to proceed
+always_yes: True
+
+channels:
+  - defaults

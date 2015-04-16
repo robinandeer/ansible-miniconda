@@ -1,0 +1,18 @@
+---
+# necessary steps to deploy the role.
+
+- name: download miniconda installer
+  sudo: no
+  get_url:
+    url={{ miniconda_url }}
+    dest=/tmp/miniconda.sh
+    mode=0755
+  register: miniconda_downloaded
+
+- name: install miniconda
+  sudo: no
+  shell: "/tmp/miniconda.sh -b -p {{ miniconda_home }} creates={{ miniconda_home }} executable=/bin/bash"
+  register: miniconda_installed
+  when: miniconda_downloaded | success
+  notify:
+    - remove miniconda setup script

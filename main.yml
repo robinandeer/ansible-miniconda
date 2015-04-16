@@ -1,0 +1,24 @@
+---
+
+# Quick-provisioning playbook
+# ---------------------------
+
+# A Simple, straight playbook for quick remote installations.
+# You will be asked which hosts to provision before-hand.
+
+
+- name: 'miniconda'
+
+  vars_prompt:
+    selected_hosts: Specify the hosts to provision
+
+  hosts: "{{selected_hosts}}"
+
+  pre_tasks:
+    - name: APT update
+      sudo: yes
+      when: ansible_os_family == 'Debian'
+      apt: update_cache=yes cache_valid_time=3600
+
+  roles:
+    - '.'    # The current directory itself is the role

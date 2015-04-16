@@ -1,0 +1,9 @@
+---
+
+# Provisioning steps
+
+# - name: Preliminary task
+#   task: ...
+
+- include: install.yml
+- include: configure.yml

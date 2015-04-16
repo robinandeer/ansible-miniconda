@@ -1,0 +1,13 @@
+---
+# Main configuration
+# -------------------
+
+miniconda_url: >
+  http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
+
+miniconda_home: '~/miniconda'
+
+miniconda_environments:
+  - name: prod
+    python_version: 2.7
+    pkgs: 'pip ipython'
