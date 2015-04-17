@@ -63,6 +63,14 @@ $ vagrant up test-ubuntu-precise
 At the moment, ``ubuntu-precise`` is the only test VM available.
 
 
+## Credits
+I took on the challenge to write my own distributable Ansible role to learn more about the tool. As such, I've taken in extensive inspiration from the following projects:
+
+- [SciLifeLab/deployment][deployment] for the included miniconda role
+- [nicholsn/ansible-role-miniconda][nicholsn]
+- [zenoamaro/ansible-role-template][template] as a base role template
+
+
 ## Changelog
 
 ### 0.1
@@ -70,5 +78,8 @@ At the moment, ``ubuntu-precise`` is the only test VM available.
 Initial version.
 
 
+[deployment]: https://github.com/SciLifeLab/deployment
+[nicholsn]: https://github.com/nicholsn/ansible-role-miniconda
+[template]: https://github.com/zenoamaro/ansible-role-template
 [travis-url]: https://travis-ci.org/robinandeer/ansible-miniconda
 [travis-image]: https://img.shields.io/travis/robinandeer/ansible-miniconda.svg?style=flat
