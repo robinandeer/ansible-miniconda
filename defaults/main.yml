@@ -11,3 +11,6 @@ miniconda_environments:
   - name: prod
     python_version: 2.7
     pkgs: 'pip ipython'
+
+miniconda_modify_bashrc: no
+miniconda_add_condarc: yes
