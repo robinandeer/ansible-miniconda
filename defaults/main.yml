@@ -12,5 +12,7 @@ miniconda_environments:
     python_version: 2.7
     pkgs: 'pip ipython'
 
-miniconda_modify_bashrc: no
+miniconda_modify_path: no
+miniconda_rcfile: '~/.bashrc'
+
 miniconda_add_condarc: yes

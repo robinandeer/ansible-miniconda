@@ -10,10 +10,10 @@
 
 - name: add miniconda to the PATH
   sudo: no
-  shell: "echo '{{ item }}' >> ~/.bashrc executable=/bin/bash"
+  shell: "echo '{{ item }}' >> {{ miniconda_rcfile }} executable=/bin/bash"
   with_items:
     - "export PATH={{ miniconda_home }}/bin:$PATH"
-  when: miniconda_modify_bashrc
+  when: miniconda_modify_path
 
 - name: update conda to latest version
   sudo: no
