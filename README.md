@@ -73,9 +73,15 @@ I took on the challenge to write my own distributable Ansible role to learn more
 
 ## Changelog
 
-### 0.1
+### 0.3
+- add option to specify rcfile to modify ``$PATH``
 
-Initial version.
+### 0.2
+- add option to modify ``.bashrc``
+- add option to add ``.condarc`` to the system
+
+### 0.1
+- Initial version.
 
 
 [deployment]: https://github.com/SciLifeLab/deployment
