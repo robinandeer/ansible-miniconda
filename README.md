@@ -73,6 +73,9 @@ I took on the challenge to write my own distributable Ansible role to learn more
 
 ## Changelog
 
+### 0.4
+- use ``lininfile`` to add miniconda to ``$PATH``
+
 ### 0.3
 - add option to specify rcfile to modify ``$PATH``
 
