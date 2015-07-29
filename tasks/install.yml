@@ -11,7 +11,8 @@
 
 - name: install miniconda
   sudo: no
-  shell: "/tmp/miniconda.sh -b -p {{ miniconda_home }} creates={{ miniconda_home }} executable=/bin/bash"
+  shell: "/tmp/miniconda.sh -b -p {{ miniconda_home }} \
+          creates={{ miniconda_home }} executable=/bin/bash"
   register: miniconda_installed
   when: miniconda_downloaded | success
   notify:

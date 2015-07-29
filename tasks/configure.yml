@@ -18,10 +18,34 @@
 
 - name: update conda to latest version
   sudo: no
-  shell: "{{ miniconda_home }}/bin/conda update conda --yes -q executable=/bin/bash"
+  shell: "{{ miniconda_home }}/bin/conda update conda --yes -q \
+          executable=/bin/bash"
 
 - name: create environments
   sudo: no
-  shell: "{{ miniconda_home }}/bin/conda create --yes -q -n {{ item.name }} python={{ item.python_version }} {{ item.pkgs }} creates={{ miniconda_home }}/envs/{{ item.name }}"
-  when: miniconda_installed | success
+  shell: "{{ miniconda_home }}/bin/conda create --yes -q \
+          -n {{ item.name }} python={{ item.python_version }} {{ item.pkgs }} \
+          creates={{ miniconda_home }}/envs/{{ item.name }}"
+  when: miniconda_installed|success and miniconda_environments is not none
   with_items: miniconda_environments
+
+- name: install conda-env
+  sudo: no
+  shell: "{{ miniconda_home }}/bin/conda install conda-env --yes -q \
+          creates={{ miniconda_home }}/bin/conda-env executable=/bin/bash"
+  register: conda_env_installed
+  when: miniconda_environments_files is not none
+
+- name: copy environment definition files
+  sudo: no
+  copy: src="{{ item.local }}" dest="{{ item.remote }}"
+  with_items: miniconda_environment_files
+  when: item.local is defined
+
+- name: create environments based on environment files
+  sudo: no
+  shell: "{{ miniconda_home }}/bin/conda env create -q \
+          --file {{ item.remote }} -n {{ item.name }} \
+          creates={{ miniconda_home }}/envs/{{ item.name }}"
+  with_items: miniconda_environment_files
+  when: conda_env_installed|success

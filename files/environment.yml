@@ -1,0 +1,5 @@
+name: prod_py34
+dependencies:
+  - ipython
+  - pip
+  - python=3.4

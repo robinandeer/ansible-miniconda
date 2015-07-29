@@ -7,12 +7,27 @@ miniconda_url: >
 
 miniconda_home: '~/miniconda'
 
+miniconda_modify_path: no
+
+miniconda_rcfile: '~/.bashrc'
+miniconda_add_condarc: yes
+
+
+# Set this variable as empty (none) if you don't want to define
+# any environment here
 miniconda_environments:
   - name: prod
     python_version: 2.7
     pkgs: 'pip ipython'
 
-miniconda_modify_path: no
-miniconda_rcfile: '~/.bashrc'
 
-miniconda_add_condarc: yes
+# Set this variable to provide local and/or remote paths to environment files
+# that will be used to create new environments using the conda-env tool
+# (or set the variable as empty if you don't want to use environment files).
+#    - It is possible to specify only the `remote` location (file must exist).
+#    - `name` is required and will override the environment name specified in
+#      the file.
+miniconda_environment_files:
+  - name: prod_py34
+    local: environment.yml
+    remote: '~/environment.yml'
