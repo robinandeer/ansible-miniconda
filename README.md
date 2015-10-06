@@ -73,6 +73,9 @@ I took on the challenge to write my own distributable Ansible role to learn more
 
 ## Changelog
 
+### 0.5
+- only update conda when initially installing miniconda
+
 ### 0.4
 - use ``lininfile`` to add miniconda to ``$PATH``
 

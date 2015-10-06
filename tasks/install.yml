@@ -16,3 +16,4 @@
   when: miniconda_downloaded | success
   notify:
     - remove miniconda setup script
+    - update conda to latest version
