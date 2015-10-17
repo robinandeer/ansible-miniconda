@@ -1,6 +1,11 @@
 ---
 # necessary steps to deploy the role.
 
+- name: check if already installed
+  stat: path={{ miniconda_home }}/bin/conda
+  register: bin_conda
+  changed_when: bin_conda.stat.exists == False
+
 - name: download miniconda installer
   sudo: no
   get_url:
@@ -8,6 +13,7 @@
     dest=/tmp/miniconda.sh
     mode=0755
   register: miniconda_downloaded
+  when: bin_conda.stat.exists == False
 
 - name: install miniconda
   sudo: no
