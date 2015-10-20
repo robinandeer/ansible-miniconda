@@ -62,6 +62,8 @@ $ vagrant up test-ubuntu-precise
 
 At the moment, ``ubuntu-precise`` is the only test VM available.
 
+## Contributors
+- Koji Tanaka ([kjtanaka](https://github.com/kjtanaka))
 
 ## Credits
 I took on the challenge to write my own distributable Ansible role to learn more about the tool. As such, I've taken in extensive inspiration from the following projects:
@@ -72,6 +74,9 @@ I took on the challenge to write my own distributable Ansible role to learn more
 
 
 ## Changelog
+
+### 0.6
+- Avoid re-download of installer if conda exists
 
 ### 0.5
 - only update conda when initially installing miniconda
